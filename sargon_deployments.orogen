@@ -1,0 +1,46 @@
+name "sargon_deployments"
+
+# In order to avoid nameclashes, in case a module installs a deployment directly
+# using a prefix here (this prefix is for the deployment, i.e the executables, only
+# After installation you find them in <main-dev-folder>/install/bin/<SPACEBOT_PREFIX>...
+
+# Exoter Generic
+using_task_library 'transformer'
+
+# Exoter Control
+using_task_library 'joint_dispatcher'
+using_task_library 'locomotion_control'
+using_task_library 'ptu_control'
+using_task_library 'platform_driver'
+using_task_library 'motion_translator'
+using_task_library 'controldev'
+
+#Exoter Proprioceptive
+using_task_library 'imu_stim300'
+
+#Exoter Exteroceptive
+using_task_library 'camera_bb2'
+using_task_library 'camera_firewire'
+
+#Exoter Localization
+using_task_library 'localization_frontend'
+using_task_library 'threed_odometry'
+
+# Control related tasks
+deployment 'sargon_setup' do
+
+    task("platform_driver", "platform_driver::Task").periodic(0.08)
+    task("locomotion_control", "locomotion_control::Task")
+    task("ptu_control", "ptu_control::Task")
+    task("read_joint_dispatcher", "joint_dispatcher::Task")
+    task("command_joint_dispatcher", "joint_dispatcher::Task")
+    task("motion_translator", "motion_translator::Task")
+    task("joystick", "controldev::JoystickTask")
+    task("imu_stim300", "imu_stim300::Task")
+    task("camera_firewire_front", "camera_firewire::CameraTask")
+    task("camera_bb2_front", "camera_bb2::Task")
+    task("localization_frontend", "localization_frontend::Task")
+    task("exoter_odometry", "threed_odometry::Task")
+    add_default_logger
+end
+

@@ -1,0 +1,40 @@
+<package>
+  <description brief="ExoTeR deployments in the scope of the SARGON activity">
+  Contains a subset of all the ExoTeR tasks specified to be ported to TASTE
+  </description>
+  <author>Moritz Schilling/moritz.schilling@esa.int</author>
+  <license></license>
+  <url>http://</url>
+  <logo>http://</logo>
+  <depend package="base/cmake" />
+  <!--
+   To add any dependencies use the depend tag
+  <depend package="dummy-dependency-0" />
+	...
+  <depend package="dummy-dependency-n-1" />
+  <depend package="dummy-dependency-n" />
+  -->
+  <!-- Exoter Generic -->
+  <depend package="drivers/orogen/transformer" />
+
+  <!-- Exoter Control -->
+  <depend package="drivers/orogen/platform_driver" />
+  <depend package="drivers/orogen/controldev" />
+  <depend package="control/orogen/joint_dispatcher" />
+  <depend package="control/orogen/locomotion_control" />
+  <depend package="control/orogen/ptu_control" />
+  <depend package="control/orogen/motion_translator" />
+
+  <!-- Exoter Proprioceptive -->
+  <depend package="drivers/orogen/imu_stim300" />
+
+  <!-- Exoter Exteroceptive -->
+  <depend package="drivers/orogen/camera_firewire" />
+  <depend package="drivers/orogen/camera_bb2" />
+
+
+  <!-- Exoter Localization -->
+  <depend package="exoter/orogen/localization_frontend" />
+  <depend package="slam/orogen/threed_odometry" />
+
+</package>
