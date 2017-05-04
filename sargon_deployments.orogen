@@ -8,7 +8,9 @@ name "sargon_deployments"
 using_task_library 'transformer'
 
 # Exoter Control
-using_task_library 'joint_dispatcher'
+#using_task_library 'joint_dispatcher'
+using_task_library 'read_joint_dispatcher'
+using_task_library 'command_joint_dispatcher'
 using_task_library 'locomotion_control'
 using_task_library 'ptu_control'
 using_task_library 'platform_driver'
@@ -32,8 +34,8 @@ deployment 'sargon_setup' do
     task("platform_driver", "platform_driver::Task").periodic(0.08)
     task("locomotion_control", "locomotion_control::Task")
     task("ptu_control", "ptu_control::Task")
-    task("read_joint_dispatcher", "joint_dispatcher::Task")
-    task("command_joint_dispatcher", "joint_dispatcher::Task")
+    task("read_joint_dispatcher", "read_joint_dispatcher::Task")
+    task("command_joint_dispatcher", "command_joint_dispatcher::Task")
     task("motion_translator", "motion_translator::Task")
     task("joystick", "controldev::JoystickTask")
     task("imu_stim300", "imu_stim300::Task")
